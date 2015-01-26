@@ -11,5 +11,9 @@
     <string name="button_continue">Continue</string>
     <string name="button_go_right">Go right</string>
     <string name="text_view_message1">You have ventured down a dark alley, where would you like to go next?</string>
+    <string name="button_door_1">Enter Door 1</string>
+    <string name="button_door_2">Enter Door 2</string>
+    <string name="title_activity_final">FinalActivity</string>
+    <string name="text_view_message2">You have entered a room with two doors.</string>
 
 </resources>
