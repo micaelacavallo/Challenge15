@@ -47,7 +47,7 @@ public class StartFragment extends Fragment {
             public void onClick(View v) {
                 Random randomRoom = new Random();
                 int randomNumber = randomRoom.nextInt(2);
-                if (randomNumber == 0) {
+                if (randomNumber == 1) {
                     Intent iAlley= new Intent(getActivity(), AlleyActivity.class);
                     startActivity(iAlley);
                 }
@@ -56,6 +56,7 @@ public class StartFragment extends Fragment {
                     Intent iRoom = new Intent(getActivity(), RoomActivity.class);
                     startActivity(iRoom);
                 }
+                getActivity().finish();
             }
         });
     }
