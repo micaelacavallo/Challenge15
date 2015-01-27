@@ -6,12 +6,15 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 
 public class FinalFragment extends Fragment {
 
     TextView mText;
+    Button mButton;
+
     public FinalFragment() {
         // Required empty public constructor
     }
@@ -29,5 +32,19 @@ public class FinalFragment extends Fragment {
         mText = (TextView)getView().findViewById(R.id.textView);
        String message = getActivity().getIntent().getStringExtra(Intent.EXTRA_TEXT);
         mText.setText(message);
+        prepareButtonPlayAgain();
+
+    }
+
+    private void prepareButtonPlayAgain() {
+        mButton = (Button)getView().findViewById(R.id.button);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (getActivity(), MainActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
     }
 }

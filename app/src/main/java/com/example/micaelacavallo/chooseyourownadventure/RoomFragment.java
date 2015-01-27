@@ -42,7 +42,7 @@ public class RoomFragment extends Fragment {
                 message = "You've reached the gold!";
                 intent.putExtra(Intent.EXTRA_TEXT, message);
             } else {
-                if (floatNumber > 0.7) {
+                if (floatNumber > 0.8) {
                     message = "You've falled into the fit of despair";
                     intent.putExtra(Intent.EXTRA_TEXT, message);
                 } else {
@@ -50,6 +50,7 @@ public class RoomFragment extends Fragment {
                     }
                 }
             startActivity(intent);
+            getActivity().finish();
         }
     }
 
