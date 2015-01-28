@@ -13,7 +13,10 @@
     <string name="text_view_message1">You have ventured down a dark alley, where would you like to go next?</string>
     <string name="button_door_1">Enter Door 1</string>
     <string name="button_door_2">Enter Door 2</string>
-    <string name="title_activity_final">FinalActivity</string>
     <string name="text_view_message2">You have entered a room with two doors.</string>
+    <string name="button_play_again">Play again!</string>
+    <string name="title_activity_loose">LooseActivity</string>
+    <string name="text_view_winner">You\'ve reached the gold!</string>
+    <string name="text_view_looser">You\'ve falled into the fit of despair</string>
 
 </resources>

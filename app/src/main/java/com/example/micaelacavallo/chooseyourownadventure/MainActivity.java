@@ -1,7 +1,7 @@
 package com.example.micaelacavallo.chooseyourownadventure;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,10 +9,24 @@ import android.view.MenuItem;
 
 public class MainActivity extends Activity {
 
+    StartFragment mStartFragment;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        insertStartFragment();
+
+    }
+
+    private void insertStartFragment() {
+        mStartFragment  = new StartFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().
+                add(R.id.container, mStartFragment).
+                commit();
+
     }
 
 

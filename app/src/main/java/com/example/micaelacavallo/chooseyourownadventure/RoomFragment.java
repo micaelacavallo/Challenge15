@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import java.util.Random;
 
@@ -19,41 +18,13 @@ import java.util.Random;
 public class RoomFragment extends Fragment {
 
     Button mButtonDoor1, mButtonDoor2;
+    AlleyFragment mAlleyFragment;
+    LooseFragment mLooseFragment;
+    WinFragment mWinFragment;
+
     public RoomFragment() {
         // Required empty public constructor
     }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.room_fragment, container, false);
-    }
-
-    private class ButtonListener implements View.OnClickListener {
-
-        @Override
-        public void onClick(View v) {
-
-            float floatNumber = new Random().nextFloat();
-            String message;
-            Intent intent = new Intent(getActivity(), FinalActivity.class);
-            if (floatNumber < 0.2) {
-                message = "You've reached the gold!";
-                intent.putExtra(Intent.EXTRA_TEXT, message);
-            } else {
-                if (floatNumber > 0.8) {
-                    message = "You've falled into the fit of despair";
-                    intent.putExtra(Intent.EXTRA_TEXT, message);
-                } else {
-                        intent = new Intent(getActivity(), AlleyActivity.class);
-                    }
-                }
-            startActivity(intent);
-            getActivity().finish();
-        }
-    }
-
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -69,4 +40,53 @@ public class RoomFragment extends Fragment {
         mButtonDoor1.setOnClickListener(listener);
         mButtonDoor2.setOnClickListener(listener);
     }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_room, container, false);
+    }
+
+    private class ButtonListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+
+            float floatNumber = new Random().nextFloat();
+            if (floatNumber < 0.2) {
+                insertWinFragment();
+            } else {
+                if (floatNumber > 0.8) {
+                    insertLooseFragment();
+                } else {
+                    insertAlleyFragment();
+                }
+            }
+        }
+    }
+
+    private void insertAlleyFragment() {
+        mAlleyFragment = new AlleyFragment();
+        getFragmentManager().beginTransaction().
+                replace(R.id.container, mAlleyFragment).
+                commit();
+    }
+
+    private void insertLooseFragment() {
+        mLooseFragment = new LooseFragment();
+        getFragmentManager().beginTransaction().
+                replace(R.id.container, mLooseFragment).
+                commit();
+    }
+
+    private void insertWinFragment() {
+        mWinFragment = new WinFragment();
+        getFragmentManager().beginTransaction().
+                replace(R.id.container, mWinFragment).
+                commit();
+    }
+
+
+
+
 }

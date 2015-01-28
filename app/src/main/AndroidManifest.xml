@@ -16,18 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".FinalActivity"
-            android:label="@string/title_activity_final" >
-        </activity>
-        <activity
-            android:name=".AlleyActivity"
-            android:label="Alley" >
-        </activity>
-        <activity
-            android:name=".RoomActivity"
-            android:label="Room" >
-        </activity>
+
     </application>
 
 </manifest>

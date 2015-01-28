@@ -18,7 +18,8 @@ import java.util.Random;
  */
 public class StartFragment extends Fragment {
     Button mStartTravel;
-
+    RoomFragment mRoomFragment;
+    AlleyFragment mAlleyFragment;
 
 
     public StartFragment() {
@@ -34,13 +35,13 @@ public class StartFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
+       public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        prepareStart();
+        prepareStartButton();
 
     }
 
-    private void prepareStart() {
+    private void prepareStartButton() {
         mStartTravel = (Button)getView().findViewById(R.id.button_start_traveling);
         mStartTravel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,17 +49,29 @@ public class StartFragment extends Fragment {
                 Random randomRoom = new Random();
                 int randomNumber = randomRoom.nextInt(2);
                 if (randomNumber == 1) {
-                    Intent iAlley= new Intent(getActivity(), AlleyActivity.class);
-                    startActivity(iAlley);
+                    insertRoomFragment();
                 }
                 else
                 {
-                    Intent iRoom = new Intent(getActivity(), RoomActivity.class);
-                    startActivity(iRoom);
+                    insertAlleyFragment();
                 }
-                getActivity().finish();
             }
         });
+    }
+
+    private void insertAlleyFragment() {
+        mRoomFragment = new RoomFragment();
+        getFragmentManager().beginTransaction().
+                replace(R.id.container, mAlleyFragment).
+                commit();
+
+    }
+
+    private void insertRoomFragment() {
+        mAlleyFragment = new AlleyFragment();
+        getFragmentManager().beginTransaction().
+                replace(R.id.container, mRoomFragment).
+                commit();
     }
 
 
