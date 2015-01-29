@@ -71,6 +71,7 @@ public class AlleyFragment extends Fragment {
         mRoomFragment = new RoomFragment();
         getFragmentManager().beginTransaction().
                 replace(R.id.container, mRoomFragment).
+                addToBackStack(null).
                 commit();
     }
 
@@ -78,6 +79,7 @@ public class AlleyFragment extends Fragment {
         mLooseFragment = new LooseFragment();
         getFragmentManager().beginTransaction().
                 replace(R.id.container, mLooseFragment).
+                addToBackStack(null).
                 commit();
     }
 
@@ -85,6 +87,7 @@ public class AlleyFragment extends Fragment {
         mWinFragment = new WinFragment();
         getFragmentManager().beginTransaction().
                 replace(R.id.container, mWinFragment).
+                addToBackStack(null).
                 commit();
     }
 

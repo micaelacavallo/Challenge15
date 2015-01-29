@@ -60,17 +60,19 @@ public class StartFragment extends Fragment {
     }
 
     private void insertAlleyFragment() {
-        mRoomFragment = new RoomFragment();
+        mAlleyFragment = new AlleyFragment();
         getFragmentManager().beginTransaction().
                 replace(R.id.container, mAlleyFragment).
+                addToBackStack(null).
                 commit();
 
     }
 
     private void insertRoomFragment() {
-        mAlleyFragment = new AlleyFragment();
+        mRoomFragment = new RoomFragment();
         getFragmentManager().beginTransaction().
                 replace(R.id.container, mRoomFragment).
+                addToBackStack(null).
                 commit();
     }
 

@@ -53,8 +53,9 @@ public class LooseFragment extends Fragment {
     private void insertStartFragment() {
         mStartFragment  = new StartFragment();
         FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         fragmentManager.beginTransaction().
-                add(R.id.container, mStartFragment).
+                replace(R.id.container, mStartFragment).
                 commit();
     }
 
