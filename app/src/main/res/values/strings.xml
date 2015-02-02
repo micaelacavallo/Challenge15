@@ -18,5 +18,11 @@
     <string name="title_activity_loose">LooseActivity</string>
     <string name="text_view_winner">You\'ve reached the gold!</string>
     <string name="text_view_looser">You\'ve falled into the fit of despair</string>
+    <string name="pref_category_customization">Settings</string>
+    <string name="pref_difficulty_level_title">Difficulty levels</string>
+    <string name="pref_difficulty_level_summary">Difficulty levels for the game</string>
+    <string name="pref_username_title">Username</string>
+    <string name="pref_username_summary">Username for a personalized message.</string>
+    <string name="activity_app_settings_title">Settings</string>
 
 </resources>
