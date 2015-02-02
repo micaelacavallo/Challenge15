@@ -3,12 +3,15 @@ package com.example.micaelacavallo.chooseyourownadventure;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 /**
@@ -18,6 +21,9 @@ public class LooseFragment extends Fragment {
 
     Button mButton;
     StartFragment mStartFragment;
+    TextView mTextViewMessage;
+
+    public final static String USERNAME_PREFERENCE = "username_preference";
 
     public LooseFragment() {
         // Required empty public constructor
@@ -28,7 +34,18 @@ public class LooseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_loose, container, false);
+
+        View rootView = inflater.inflate(R.layout.fragment_loose, container, false);
+        displayUserInfo(rootView);
+        return rootView;
+    }
+
+    public void displayUserInfo(View rootView) {
+        mTextViewMessage = (TextView)rootView.findViewById(R.id.text_view_looser);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String username = sharedPreferences.getString(USERNAME_PREFERENCE, getString(R.string.default_username));
+        String userInfo = String.format(getString(R.string.user_info), username);
+        mTextViewMessage.setText(userInfo);
     }
 
     @Override

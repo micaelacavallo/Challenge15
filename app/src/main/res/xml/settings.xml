@@ -12,7 +12,7 @@
             android:summary="@string/pref_difficulty_level_summary"
             android:entries="@array/difficulty_options"
             android:entryValues="@array/difficulty_options"
-            android:
+            android:defaultValue="Easy"
             ></ListPreference>
     </PreferenceCategory>
 </PreferenceScreen>
