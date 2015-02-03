@@ -22,7 +22,6 @@ public class LooseFragment extends Fragment {
     Button mButton;
     StartFragment mStartFragment;
     TextView mTextViewMessage;
-
     public final static String USERNAME_PREFERENCE = "username_preference";
 
     public LooseFragment() {
@@ -40,7 +39,7 @@ public class LooseFragment extends Fragment {
         return rootView;
     }
 
-    public void displayUserInfo(View rootView) {
+    private void displayUserInfo(View rootView) {
         mTextViewMessage = (TextView)rootView.findViewById(R.id.text_view_looser);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String username = sharedPreferences.getString(USERNAME_PREFERENCE, getString(R.string.default_username));
