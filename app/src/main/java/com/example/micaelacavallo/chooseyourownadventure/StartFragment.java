@@ -2,8 +2,10 @@ package com.example.micaelacavallo.chooseyourownadventure;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +22,6 @@ public class StartFragment extends Fragment {
     Button mStartTravel;
     RoomFragment mRoomFragment;
     AlleyFragment mAlleyFragment;
-
 
     public StartFragment() {
         // Required empty public constructor
@@ -75,6 +76,8 @@ public class StartFragment extends Fragment {
                 addToBackStack(null).
                 commit();
     }
+
+
 
 
 }

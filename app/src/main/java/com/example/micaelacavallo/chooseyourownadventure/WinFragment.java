@@ -37,7 +37,7 @@ public class WinFragment extends Fragment {
         mTextViewMessage = (TextView)rootView.findViewById(R.id.text_view_winner);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String username = sharedPreferences.getString(USERNAME_PREFERENCE, getString(R.string.default_username));
-        String userInfo = String.format(getString(R.string.user_info2), username);
+        String userInfo = String.format(getString(R.string.user_info), username);
         mTextViewMessage.setText(userInfo);
     }
 

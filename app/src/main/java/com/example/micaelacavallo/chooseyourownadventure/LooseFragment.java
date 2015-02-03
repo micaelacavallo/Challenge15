@@ -43,7 +43,7 @@ public class LooseFragment extends Fragment {
         mTextViewMessage = (TextView)rootView.findViewById(R.id.text_view_looser);
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String username = sharedPreferences.getString(USERNAME_PREFERENCE, getString(R.string.default_username));
-        String userInfo = String.format(getString(R.string.user_info), username);
+        String userInfo = String.format(getString(R.string.user_info2), username);
         mTextViewMessage.setText(userInfo);
     }
 

@@ -2,8 +2,10 @@ package com.example.micaelacavallo.chooseyourownadventure;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,7 @@ public class RoomFragment extends Fragment {
     AlleyFragment mAlleyFragment;
     LooseFragment mLooseFragment;
     WinFragment mWinFragment;
+    public static String DIFFICULTY_LEVELS = "difficulty_levels";
 
     public RoomFragment() {
         // Required empty public constructor
@@ -41,6 +44,14 @@ public class RoomFragment extends Fragment {
         mButtonDoor2.setOnClickListener(listener);
     }
 
+
+    public String difficultyLevel ()
+    {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String level = sharedPreferences.getString(DIFFICULTY_LEVELS, "");
+        return level;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,16 +62,42 @@ public class RoomFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-
-            float floatNumber = new Random().nextFloat();
-            if (floatNumber < 0.2) {
-                insertWinFragment();
-            } else {
-                if (floatNumber > 0.8) {
-                    insertLooseFragment();
-                } else {
-                    insertAlleyFragment();
-                }
+            String level = difficultyLevel();
+            float intNumber = new Random().nextInt(50);
+            switch (level) {
+                case "Easy":
+                    if (intNumber < 21) {
+                        insertWinFragment();
+                    } else {
+                        if (intNumber > 39) {
+                            insertLooseFragment();
+                        } else {
+                            insertAlleyFragment();
+                        }
+                    }
+                    break;
+                case "Medium":
+                    if (intNumber < 16) {
+                        insertWinFragment();
+                    } else {
+                        if (intNumber > 34) {
+                            insertLooseFragment();
+                        } else {
+                            insertAlleyFragment();
+                        }
+                    }
+                    break;
+                case "Hard":
+                    if (intNumber < 11) {
+                        insertWinFragment();
+                    } else {
+                        if (intNumber > 29) {
+                            insertLooseFragment();
+                        } else {
+                            insertAlleyFragment();
+                        }
+                    }
+                    break;
             }
         }
     }
